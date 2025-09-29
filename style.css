@@ -5,55 +5,59 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #fff9f2;
 }
 
+/* Header */
 header {
   text-align: center;
-  background-color: #f8b400;
-  color: white;
   padding: 15px 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 header h1 { margin: 0; font-size: 28px; }
 header p { margin: 5px 0 0 0; font-size: 14px; }
 
+/* Theme Selector */
+#theme-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+#theme-selector select {
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Tabs */
 .tabs {
   display: flex;
   justify-content: space-around;
-  background-color: #ffd54f;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .tab-button {
   flex: 1;
   padding: 15px;
   border: none;
   background: none;
   font-size: 16px;
-  color: #333;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
 }
-
 .tab-button.active {
-  background-color: #f8b400;
-  color: white;
   font-weight: bold;
   border-radius: 8px 8px 0 0;
 }
 
-.tab-planner { background-color: #fff3e0; }
-.tab-meals { background-color: #fff8e1; }
-.tab-reflection { background-color: #fffde7; }
-
+/* Tab content */
 .tab-content { display: none; flex: 1; padding: 15px; overflow-y: auto; }
 .tab-content.active { display: block; }
 
+/* Inputs and buttons */
 input, textarea {
   display: block;
   width: 100%;
@@ -63,7 +67,6 @@ input, textarea {
   border-radius: 8px;
   font-size: 14px;
 }
-
 button {
   display: flex;
   align-items: center;
@@ -72,29 +75,42 @@ button {
   width: 100%;
   margin: 10px 0;
   padding: 10px;
-  background-color: #f8b400;
-  color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
 }
-
-button:hover { background-color: #e6a800; }
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
+ul { list-style: none; padding: 0; }
 ul li {
   padding: 8px;
   border-bottom: 1px solid #eee;
   border-radius: 4px;
   margin-bottom: 4px;
-  background-color: #fff8e1;
 }
 
+/* -------------------- Themes -------------------- */
+body.theme-warm { background-color: #fff9f2; }
+body.theme-warm header { background-color: #f8b400; color: white; }
+body.theme-warm .tabs { background-color: #ffd54f; }
+body.theme-warm .tab-planner { background-color: #fff3e0; }
+body.theme-warm .tab-meals { background-color: #fff8e1; }
+body.theme-warm .tab-reflection { background-color: #fffde7; }
+
+body.theme-pastel { background-color: #f2f9ff; }
+body.theme-pastel header { background-color: #4da6ff; color: white; }
+body.theme-pastel .tabs { background-color: #80c1ff; }
+body.theme-pastel .tab-planner { background-color: #e6f2ff; }
+body.theme-pastel .tab-meals { background-color: #cce6ff; }
+body.theme-pastel .tab-reflection { background-color: #b3daff; }
+
+body.theme-natural { background-color: #f7fff2; }
+body.theme-natural header { background-color: #4caf50; color: white; }
+body.theme-natural .tabs { background-color: #81c784; }
+body.theme-natural .tab-planner { background-color: #e8f5e9; }
+body.theme-natural .tab-meals { background-color: #dcedc8; }
+body.theme-natural .tab-reflection { background-color: #f1f8e9; }
+
+/* Responsive */
 @media (max-width: 500px) {
   header h1 { font-size: 24px; }
   header p { font-size: 12px; }
