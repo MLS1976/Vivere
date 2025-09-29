@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivere</title>
+  <meta name="description" content="Vivere – Planner, meals & reflection for busy moms.">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service Worker Registered'));
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Vivere</h1>
+    <p>Planner, meals & reflection for busy moms</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-button active" data-tab="planner"><i class="fa-solid fa-calendar-check"></i> Plan</button>
+    <button class="tab-button" data-tab="meals"><i class="fa-solid fa-utensils"></i> Meals</button>
+    <button class="tab-button" data-tab="reflection"><i class="fa-solid fa-heart"></i> Me Time</button>
+  </div>
+
+  <div id="planner" class="tab-content active tab-planner">
+    <h2>Planner</h2>
+    <input type="text" id="todo-input" placeholder="Add a task">
+    <button id="add-todo"><i class="fa-solid fa-plus"></i> Add</button>
+    <ul id="todo-list"></ul>
+    <textarea id="notes" placeholder="Notes or meal ideas"></textarea>
+  </div>
+
+  <div id="meals" class="tab-content tab-meals">
+    <h2>Meals</h2>
+    <input type="text" id="fridge-input" placeholder="What’s in your fridge? (comma-separated)">
+    <button id="get-meal"><i class="fa-solid fa-lightbulb"></i> Get Meal Idea</button>
+    <p id="meal-result"></p>
+    <button id="generate-list"><i class="fa-solid fa-list"></i> Generate Grocery List</button>
+    <ul id="grocery-list"></ul>
+  </div>
+
+  <div id="reflection" class="tab-content tab-reflection">
+    <h2>Reflection</h2>
+    <p id="daily-prompt"></p>
+    <textarea id="journal" placeholder="Write your thoughts here"></textarea>
+    <button id="save-journal"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+    <ul id="journal-entries"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
